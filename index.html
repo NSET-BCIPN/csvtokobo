@@ -136,31 +136,40 @@
 		    		data:{data:getUploadData(index)},
 		    		type:'POST',
 		    		success:function(response){
-		    			r = JSON.parse(response);
-		    			var txt;
-		    			if (r.hasOwnProperty('error')){
+		    			try{
+		    				r = JSON.parse(response);
+			    			var txt;
+			    			if (r.hasOwnProperty('error')){
+			    				console.log(data_array[index][log_column]);
+				    			console.log(response);
+			    				txt = "<tr class='danger'>";
+			    				txt+="<td>"+data_array[index][log_column]+"</td>";
+			    				txt+="<td>"+r['error']+"</td>";
+			    				txt+="<tr>";
+			    			}else if (r.hasOwnProperty('message')){
+			    				txt = "<tr class='success'>";
+			    				txt+="<td>"+data_array[index][log_column]+"</td>";
+			    				txt+="<td>"+r['message']+"</td>";
+			    				txt+="<tr>";
+			    			}else{
+			    				console.log(data_array[index][log_column]);
+				    			console.log(response);
+			    				txt = "<tr class='info'>";
+			    				txt+="<td>"+data_array[index][log_column]+"</td>";
+			    				txt+="<td>"+response+"</td>";
+			    				txt+="<tr>";
+			    			}
+			    		}catch(err){
 		    				console.log(data_array[index][log_column]);
 			    			console.log(response);
-		    				txt = "<tr class='danger'>";
+		    				var txt = "<tr class='danger'>";
 		    				txt+="<td>"+data_array[index][log_column]+"</td>";
-		    				txt+="<td>"+r['error']+"</td>";
-		    				txt+="<tr>";
-		    			}else if (r.hasOwnProperty('message')){
-		    				txt = "<tr class='success'>";
-		    				txt+="<td>"+data_array[index][log_column]+"</td>";
-		    				txt+="<td>"+r['message']+"</td>";
-		    				txt+="<tr>";
-		    			}else{
-		    				console.log(data_array[index][log_column]);
-			    			console.log(response);
-		    				txt = "<tr class='info'>";
-		    				txt+="<td>"+data_array[index][log_column]+"</td>";
-		    				txt+="<td>"+response+"</td>";
-		    				txt+="<tr>";
-		    			}
+		    				txt+="<td>Unexpected Error! check console log!</td>";
+		    				txt+="<tr>";		    			
+			    		}
 		    			$(".table").append(txt);
 
-		    			if (index < 7){//data_array.length-1){
+		    			if (index < data_array.length-1){
 		    				index++;
 		    				setProgressValue(index+1);
 							uploadHelper();
