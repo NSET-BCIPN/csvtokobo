@@ -97,9 +97,9 @@
 		    $("input[type=checkbox]").on('change',function(e){
 		    	var toggle = $(this).attr("toggle");
 		    	if ($(this).prop('checked')){
-		    		$("."+toggle).css("visibility","visible");
+		    		$("."+toggle).show();
 		    	}else{
-		    		$("."+toggle).css("visibility","hidden");
+		    		$("."+toggle).hide();
 		    	}
 		    });
 		    function setProgressValue(value){
@@ -136,9 +136,9 @@
 		    		data:{data:getUploadData(index)},
 		    		type:'POST',
 		    		success:function(response){
+		    			var txt;
 		    			try{
 		    				r = JSON.parse(response);
-			    			var txt;
 			    			if (r.hasOwnProperty('error')){
 			    				console.log(data_array[index][log_column]);
 				    			console.log(response);
@@ -162,7 +162,7 @@
 			    		}catch(err){
 		    				console.log(data_array[index][log_column]);
 			    			console.log(response);
-		    				var txt = "<tr class='danger'>";
+		    				txt = "<tr class='danger'>";
 		    				txt+="<td>"+data_array[index][log_column]+"</td>";
 		    				txt+="<td>Unexpected Error! check console log!</td>";
 		    				txt+="<tr>";		    			
