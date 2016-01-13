@@ -8,6 +8,6 @@ The values correspend to the following
 3. 'log_column' = the header of column that you want to log in the table
 */
 
-var id = "DDA_comp";
+var id = "form_id";
 var file_name = "to_upload.csv";
-var log_column = "building_ID";
+var log_column = "ID";
