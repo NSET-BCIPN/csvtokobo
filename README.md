@@ -23,7 +23,7 @@ Follow the following steps to get started <br>
 6.  Click the start button and watch it happen!
 
 ####3.  Dependencies
-The dependencies (libraries) are placed in the "libs" folder and are
-1.  <a href ='https://jquery.com/'>jquery</a>
-2.  <a href ='https://code.google.com/p/jquery-csv/'>jquery-csv</a>
-3.  <a href ='http://getbootstrap.com/'>bootstrap</a>
+The dependencies (libraries) are placed in the "libs" folder and are<br>
+1.  <a href ='https://jquery.com/'>jquery</a><br>
+2.  <a href ='https://code.google.com/p/jquery-csv/'>jquery-csv</a><br>
+3.  <a href ='http://getbootstrap.com/'>bootstrap</a><br>
